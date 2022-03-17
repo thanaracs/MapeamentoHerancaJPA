@@ -1,0 +1,46 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>TODO supply a title</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--box icons -->
+    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'/>
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <style>
+
+        .container{
+            justify-content: center;
+            align-items: center;
+            position: center;
+            width: 600px;
+            height: 500px;
+        }
+    </style>
+</head>
+
+<body>
+<div class="container">
+    <a href="/../home">Home</a>
+
+    <h4>Cadastro: Pessoa Juridica</h4>
+
+    <form th:action="${pessoaJuridica.id == 0} ? @{/pessoas/save/pj} : @{/pessoas/update/pj}" th:object="${pessoaJuridica}" method="post">
+        <input type="hidden" th:field="*{id}">
+        Nome: <input type="text" th:field="*{nome}"  placeholder="Informe a empresa. Ex: Casas Bahia">
+        CNPJ: <input type="text" th:field="*{cnpj}"  placeholder="informe o CNPJ. Ex: 2033215230000321">
+
+        <button class="btn waves-effect waves-light" type="submit" value="Enviar">Cadastrar
+            <i class="material-icons right">done</i>
+        </button>
+        <a href="/../home" class="waves-effect waves-light btn red"><i class="material-icons right">cancel</i>Cancelar</a>
+    </form>
+
+</div>
+</body>
+</html>
